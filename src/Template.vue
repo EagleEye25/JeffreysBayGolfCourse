@@ -7,11 +7,33 @@
 <script lang="ts">
 import Vue from 'vue';
 
-export default Vue.extend({
+interface ComponentProps {
+
+}
+
+interface ComponentData {
+}
+
+interface ComponentComputed {
+}
+
+interface ComponentMethods {
+}
+
+export default Vue.extend<ComponentData, ComponentMethods, ComponentComputed, ComponentProps>({
   name: 'Template',
-  props: {
-    msg: String,
+  data() {
+    return {
+    }
   },
+
+  computed: {
+
+  },
+
+  methods: {
+
+  }
 });
 </script>
 
