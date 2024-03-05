@@ -23,7 +23,6 @@
 
     <ContactUs
       ref="contactUsSection"
-      class="pb-5"
     />
   </div>
 </template>
