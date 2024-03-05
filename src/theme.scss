@@ -1,7 +1,16 @@
 // Define variable defaults
-$body-bg: #000;
-$body-color: #111;
+// $body-bg: #000;
+// $body-color: #111;
 
 // Then import Bootstrap and BootstrapVue SCSS files (order is important)
 @import 'node_modules/bootstrap/scss/bootstrap.scss';
 @import 'node_modules/bootstrap-vue/src/index.scss';
+
+body {
+  // margin: 0;
+  // padding: 0;
+  // background-image: url('~@/assets/images/cartographer.png');  // Replace with the actual path to your image
+  // background-size: auto;
+  // background-position: center;
+  // background-repeat: no-repeat;
+}

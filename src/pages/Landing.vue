@@ -11,8 +11,18 @@
       class="pb-5"
     />
 
+    <LocalRules
+      ref="localRulesSection"
+      class="pb-5"
+    />
+
     <History
       ref="historySection"
+      class="pb-5"
+    />
+
+    <ContactUs
+      ref="contactUsSection"
       class="pb-5"
     />
   </div>
@@ -24,9 +34,12 @@ import Home from '../components/Home.vue'
 import Header from '../components/Header.vue';
 import History from '../components/History.vue';
 import Fees from '../components/Fees.vue';
+import LocalRules from '../components/LocalRules.vue';
+import ContactUs from '../components/ContactUs.vue';
 
 interface ComponentMethods {
   handleSectionClick(section: string): void;
+  scrollIntoViewWithOffset(section: Vue | undefined, offset: number): void
 }
 
 export default Vue.extend<unknown, ComponentMethods, unknown, unknown>({
@@ -35,22 +48,49 @@ export default Vue.extend<unknown, ComponentMethods, unknown, unknown>({
     Home,
     Header,
     History,
-    Fees
+    Fees,
+    LocalRules,
+    ContactUs
   },
 
   methods: {
     handleSectionClick(section) {
-        switch (section) {
-          case 'landingSection':
-            (this.$refs.landingSection as Vue | undefined)?.$el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const offset = 60; // Adjust this value as needed
+
+      switch (section) {
+        case 'landingSection':
+          this.scrollIntoViewWithOffset(this.$refs.landingSection as Vue | undefined, offset);
           break;
-          case 'historySection':
-            (this.$refs.historySection as Vue | undefined)?.$el?.scrollIntoView({ behavior: 'smooth', block: 'start'  });
-            break;
-          case 'feesSection':
-            (this.$refs.feesSection as Vue | undefined)?.$el?.scrollIntoView({ behavior: 'smooth', block: 'start'  });
-            break;
-        }
+        case 'historySection':
+          this.scrollIntoViewWithOffset(this.$refs.historySection as Vue | undefined, offset);
+          break;
+        case 'feesSection':
+          this.scrollIntoViewWithOffset(this.$refs.feesSection as Vue | undefined, offset);
+          break;
+        case 'localRulesSection':
+          this.scrollIntoViewWithOffset(this.$refs.localRulesSection as Vue | undefined, offset);
+          break;
+        case 'contactUsSection':
+          this.scrollIntoViewWithOffset(this.$refs.contactUsSection as Vue | undefined, offset);
+          break;
+      }
+    },
+
+    scrollIntoViewWithOffset(section: Vue | undefined, offset: number): void {
+      if (section?.$el) {
+        section.$el.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+          inline: 'nearest',
+        });
+
+        // Use setTimeout to calculate the adjusted position after scrollIntoView
+        setTimeout(() => {
+          const currentScrollPosition = window.scrollY;
+          const newScrollPosition = currentScrollPosition - offset;
+          window.scroll(0, newScrollPosition);
+        }, 500); // Adjust the timeout duration as needed
+      }
     },
   }
 });
@@ -58,5 +98,18 @@ export default Vue.extend<unknown, ComponentMethods, unknown, unknown>({
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
+// .container {
+//   background-image: url('~@/assets/images/cartographer.png');
+//   margin: 0;
+//   padding: 0;
+//   background-size: cover;
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   height: 100vh;  // 100% of the viewport height
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   font-family: Arial, sans-serif;  // Adjust the font-family if needed
+//   color: #fff;  // Set the text color to be visible on the background
+// }
 </style>

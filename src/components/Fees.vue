@@ -1,5 +1,6 @@
 <template>
   <div class="text-center">
+      <!-- Membership Fees -->
       <b-container>
         <h1 class="font-weight-bold">
           Membership Fees
@@ -8,12 +9,22 @@
         <b-table striped hover :items="membershipTypes" :fields="membershipFields"></b-table>
       </b-container>
 
+      <!-- Green Fees Members -->
       <b-container>
         <h1 class="font-weight-bold">
-          GreenFees
+          GreenFees (Members)
         </h1>
 
-        <b-table striped hover :items="playingTypes" :fields="playingFields"></b-table>
+        <b-table striped hover :items="memberPlayingTypes" :fields="memberPlayingFields"></b-table>
+      </b-container>
+
+      <!-- Green Fees Non Members -->
+      <b-container>
+        <h1 class="font-weight-bold">
+          GreenFees (Non-Members)
+        </h1>
+
+        <b-table striped hover :items="visitorPlayingTypes" :fields="visitorPlayingFields"></b-table>
       </b-container>
   </div>
 </template>
@@ -28,8 +39,11 @@ import Vue from 'vue';
 interface ComponentData {
   membershipFields: string[];
   membershipTypes: {membershipType: string, annualFee: string}[]
-  playingFields: {key: string, label: string}[];
-  playingTypes: {membershipType: string, nineHoles: string, eighteenHoles: string}[];
+  memberPlayingFields: {key: string, label: string}[];
+  memberPlayingTypes: {membershipType: string, nineHoles: string, eighteenHoles: string}[];
+  visitorPlayingFields: {key: string, label: string}[];
+  visitorPlayingTypes: {membershipType: string, nineHoles: string, eighteenHoles: string}[];
+  reciprocities: string[];
 }
 
 // interface ComponentComputed {
@@ -44,35 +58,45 @@ export default Vue.extend<ComponentData, unknown, unknown, unknown>({
     return {
       membershipFields: ['membershipType', 'annualFee'],
       membershipTypes: [
-        { membershipType: 'JUNIORS', annualFee: 'R450.00' },
-        { membershipType: 'MEN / LADIES', annualFee: 'R1 650.00' },
-        { membershipType: 'SPOUSES', annualFee: 'R1 300.00' },
-        { membershipType: 'SOCIAL MEMBER', annualFee: 'R130.00' },
-        { membershipType: 'COUNTRY MEMBER', annualFee: 'R850.00' },
+        { membershipType: 'Full Members', annualFee: 'R2 400.00' },
+        { membershipType: 'Wives of Full Members', annualFee: 'R1 900.00' },
+        { membershipType: 'Country Member', annualFee: 'R1710.00' },
+        { membershipType: 'Junior Member', annualFee: 'R650.00' },
+        { membershipType: 'Social Member', annualFee: 'R200.00' },
       ],
 
-      playingFields: [
+      memberPlayingFields: [
         { key: 'membershipType', label: 'Membership Type' },
         { key: 'nineHoles', label: '9 Holes' },
         { key: 'eighteenHoles', label: '18 Holes' },
       ],
 
-      playingTypes: [
-        { membershipType: 'MEMBERS (SA HANDICAPPED)', nineHoles: 'R45.00', eighteenHoles: 'R70.00' },
-        { membershipType: 'JUNIORS-MEMBERS (SA HANDICAPPED)', nineHoles: 'R30.00', eighteenHoles: 'R45.00' },
-        { membershipType: 'VISITORS (SA HANDICAPPED)', nineHoles: 'R100.00', eighteenHoles: 'R140.00' },
-        { membershipType: 'VISITORS (NON-SA HANDICAPPED)', nineHoles: 'R130.00', eighteenHoles: 'R180.00' },
-        { membershipType: 'JUNIOR & STUDENT VISITORS (SA & NON-SA HANDICAPPED)', nineHoles: 'R45.00', eighteenHoles: 'R60.00' },
-        { membershipType: 'SAGES/ALBATROS/GROUPS', nineHoles: 'R45.00', eighteenHoles: 'R70.00' },
-        { membershipType: 'COUNTRY MEMBERS/VISITORS WITH RECIPROCITY (SA HANDICAPPED)', nineHoles: 'R70.00', eighteenHoles: 'R90.00' },
-        { membershipType: 'OVER 80\'s - non club competition days', nineHoles: 'R30.00', eighteenHoles: 'R30.00' },
-        { membershipType: 'OVER 80\'s - competition days', nineHoles: 'R70.00', eighteenHoles: '' },
-        { membershipType: 'CHICKEN RUN', nineHoles: 'R35.00', eighteenHoles: 'R35.00' },
-        { membershipType: 'SUNDAY - all players (9&18 holes)(Accept December Season)', nineHoles: 'R30.00', eighteenHoles: 'R45.00' },
-        { membershipType: 'WATER LEVY - all players', nineHoles: 'R5.00', eighteenHoles: 'R5.00' },
-        { membershipType: 'GOLF CART HIRE - MEMBERS', nineHoles: 'R100.00', eighteenHoles: 'R155.00' },
-        { membershipType: 'GOLF CART HIRE - VISITORS', nineHoles: 'R130.00', eighteenHoles: 'R185.00' },
+      memberPlayingTypes: [
+        { membershipType: 'Full Members', nineHoles: 'R80.00', eighteenHoles: 'R105.00' },
+        { membershipType: 'Junior Members', nineHoles: 'R60.00', eighteenHoles: 'R75.00' },
+        { membershipType: 'Rental Golf Cart', nineHoles: 'R160.00', eighteenHoles: 'R250.00' },
+        { membershipType: 'Full Members Sunday', nineHoles: 'R75.00', eighteenHoles: 'R95.00' },
+        { membershipType: 'Country Members', nineHoles: 'R80.00', eighteenHoles: 'R105.00' },
+        { membershipType: 'Competition Fee', nineHoles: '', eighteenHoles: 'R20.00' },
       ],
+
+      visitorPlayingFields: [
+        { key: 'membershipType', label: 'Membership Type' },
+        { key: 'nineHoles', label: '9 Holes' },
+        { key: 'eighteenHoles', label: '18 Holes' },
+      ],
+
+      visitorPlayingTypes: [
+        { membershipType: 'Affiliated', nineHoles: 'R110.00', eighteenHoles: 'R185.00' },
+        { membershipType: 'Non Affiliated', nineHoles: 'R130.00', eighteenHoles: 'R210.00' },
+        { membershipType: 'Rental Golf Cart', nineHoles: 'R200.00', eighteenHoles: 'R300.00' },
+        { membershipType: 'SAGES', nineHoles: 'R80.00', eighteenHoles: 'R105.00' },
+        { membershipType: 'Students (University card must be shown)', nineHoles: 'R85.00', eighteenHoles: 'R110.00' },
+        { membershipType: 'Junior Affiliated', nineHoles: 'R85.00', eighteenHoles: 'R110.00' },
+        { membershipType: 'Junior Non Affiliated', nineHoles: 'R85.00', eighteenHoles: 'R110.00' },
+      ],
+
+      reciprocities: ['Fynbos', 'Goose Valley', 'Graaff Reinet', 'Hankey', 'Joubertina', 'Shark River GC', 'St Francis Bay', 'Uitenhage', 'Walmer GC', 'Zwartenbosch'],
     }
   },
 

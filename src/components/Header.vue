@@ -6,7 +6,7 @@
       class="fixed-top header"
     >
       <b-navbar-brand href="#">
-        Your Logo
+        <img src="@/assets/images/logo.png" alt="Your Logo" height="40" />
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -22,11 +22,14 @@
           <b-nav-item @click="emitSection('feesSection')">
             Fees
           </b-nav-item>
+          <b-nav-item @click="emitSection('localRulesSection')">
+            Local Rules
+          </b-nav-item>
           <b-nav-item @click="emitSection('historySection')">
             History
           </b-nav-item>
-          <b-nav-item @click="emitSection('aboutSection')">
-            About
+          <b-nav-item @click="emitSection('contactUsSection')">
+            Contact Us
           </b-nav-item>
         </b-navbar-nav>
       </b-collapse>
