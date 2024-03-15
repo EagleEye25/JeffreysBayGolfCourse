@@ -8,22 +8,22 @@
           <!-- Grid column -->
           <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
             <!-- Content -->
-            <h6 class="text-uppercase fw-bold mb-4">
-              Company name
+            <h6 class="text-uppercase font-weight-bold mb-4">
+              Jeffreys Bay Golf Course
             </h6>
-            <p>
+            <!-- <p>
               some random text content here
-            </p>
-            <div class="d-flex justify-content-center justify-content-between p-2">
-              <a href="" rel="noopener" class="me-4 text-reset h2 mb-2 border-rounded m-2">
+            </p> -->
+            <div class="d-flex justify-content-center p-2">
+              <a href="https://www.facebook.com/Jbaygolf/" target="_blank" rel="noopener" class="me-4 text-reset h2 mb-2 border-rounded m-2">
                 <b-icon icon="facebook"></b-icon>
               </a>
-              <a href="" rel="noopener" class="me-4 text-reset h2 mb-2 border-rounded m-2">
+              <!-- <a href="" rel="noopener" class="me-4 text-reset h2 mb-2 border-rounded m-2">
                 <b-icon icon="twitter"></b-icon>
               </a>
               <a href="" rel="noopener" class="me-4 text-reset h2 mb-2 border-rounded m-2">
                 <b-icon icon="instagram"></b-icon>
-              </a>
+              </a> -->
             </div>
           </div>
           <!-- Grid column -->
@@ -31,27 +31,26 @@
           <!-- Grid column -->
           <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
             <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">
+            <h6 class="text-uppercase font-weight-bold mb-4">
               Contact Us
             </h6>
             <p>
               For inquiries and reservations, please contact us at:
             </p>
-            <p><a href="mailto:info@golfcourse.com">info@golfcourse.com</a></p>
-            <p><a href="tel:+2742000000">+27(0) 42 456 7890</a></p>
+            <p><a href="mailto:jbaygolf@truewan.co.za">jbaygolf@truewan.co.za</a></p>
+            <p><a href="tel:+27422932532">+27(0) 42 293 2532</a></p>
           </div>
           <!-- Grid column -->
 
           <!-- Grid column -->
-          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
-            <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">
+          <!-- <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
+            <h6 class="text-uppercase font-weight-bold mb-4">
               Map
             </h6>
             <p>
               Put the map container in here
             </p>
-          </div>
+          </div> -->
           <!-- Grid column -->
         </div>
         <!-- Grid row -->
@@ -60,10 +59,10 @@
     <!-- Section: Links  -->
 
     <!-- Copyright -->
-    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    <!-- <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
       © 2024 Copyright:
-      <a class="text-reset fw-bold" href="" rel="noopener">Jeffreys Bay Golf Club (add link to terms and conditions or something)</a>
-    </div>
+      <a class="text-reset font-weight-bold" href="" rel="noopener">Jeffreys Bay Golf Club (add link to terms and conditions or something)</a>
+    </div> -->
     <!-- Copyright -->
 
   </div>
