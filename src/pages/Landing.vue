@@ -23,7 +23,6 @@
 
     <ContactUs
       ref="contactUsSection"
-      class="pb-5"
     />
   </div>
 </template>
@@ -98,18 +97,4 @@ export default Vue.extend<unknown, ComponentMethods, unknown, unknown>({
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-// .container {
-//   background-image: url('~@/assets/images/cartographer.png');
-//   margin: 0;
-//   padding: 0;
-//   background-size: cover;
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   height: 100vh;  // 100% of the viewport height
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   font-family: Arial, sans-serif;  // Adjust the font-family if needed
-//   color: #fff;  // Set the text color to be visible on the background
-// }
 </style>
